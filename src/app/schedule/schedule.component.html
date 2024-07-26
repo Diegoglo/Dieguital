@@ -1,0 +1,40 @@
+<!-- <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Agenda de Horario</h4>
+  
+            <div class="form-group mb-4">
+              <label for="datePicker" class="form-label">Seleccione una fecha:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="datePicker" placeholder="Seleccione una fecha">
+                <span class="input-group-text">
+                  <i class="bi bi-calendar"></i>
+                </span>
+              </div>
+            </div>
+  
+            <div class="mb-4" *ngIf="selectedDate">
+              <h5>Seleccione una hora:</h5>
+              <div class="btn-group-vertical w-100">
+                <button class="btn btn-outline-primary mb-2" [ngClass]="{'btn-primary': !isTimeOccupied(time)}" *ngFor="let time of availableTimes" (click)="selectTimeSlot(time)" [disabled]="isTimeOccupied(time)">
+                  {{ time }}
+                </button>
+              </div>
+            </div>
+  
+            <div *ngIf="selectedTime" class="mt-4">
+              <h5>Agregar Usuario:</h5>
+              <div class="form-group">
+                <label for="userName" class="form-label">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="userName" [(ngModel)]="userName" placeholder="Ingrese nombre de usuario">
+              </div>
+              <button class="btn btn-success mt-2" (click)="addAppointment()">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

@@ -1,0 +1,9 @@
+.container {
+    margin-top: 20px;
+  }
+  
+@media (max-width: 768px) {
+.map-container {
+    height: 300px;
+}
+}

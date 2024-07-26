@@ -1,0 +1,18 @@
+
+.bg-white {
+    background-color: #ffffff;
+}
+  
+.lead{
+    text-align: justify;
+}
+
+.about{
+    font-size: 3em;
+    font-weight: bold;
+}
+  
+.aboutUs{
+    font-family: 'Georgia', serif;
+    font-size: large;
+}

@@ -1,0 +1,14 @@
+<div class="image-gallery">
+    <div class="image-container" *ngFor="let image of images">
+      <div class="image-wrapper">
+        <img [src]="image.src" alt="Imagen" [class.large]="image.large">
+        <button class="more-button" (click)="toggleSize(image)">Ver más</button>
+      </div>
+      <div class="info" [class.active]="image.large">
+        <button class="close-button" (click)="toggleSize(image)">X</button>
+        <h3>{{ image.title }}</h3>
+        <p>{{ image.comment }}</p>
+      </div>
+    </div>
+  </div>
+  
