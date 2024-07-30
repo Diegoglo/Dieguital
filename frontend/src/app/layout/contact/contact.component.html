@@ -1,0 +1,50 @@
+<div class="form-container" id="contact">
+  <h1>Contáctanos</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
+    <!-- La directiva `(ngSubmit)` llama a la función `onSubmit()` cuando se envía el formulario -->
+    <!-- La clase `form` aplica estilos al formulario -->
+
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input formControlName="name" type="text" id="name" class="form-control">
+      <!-- La clase `form-control` aplica estilos al campo de entrada -->
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <!-- Muestra los mensajes de error si el campo `name` es inválido y ha sido modificado o tocado -->
+        <div *ngIf="name?.errors?.['required']" class="mensajeError">El nombre es requerido.</div>
+        <!-- Mensaje de error si el campo `name` está vacío (requerido) -->
+        
+        <div *ngIf="name?.errors?.['minlength']" class="mensajeError">El nombre debe tener al menos 3 caracteres.</div>        
+        <div *ngIf="name?.errors?.['maxlength']" class="mensajeError">El nombre no puede tener más de 50 caracteres.</div>        
+        <div *ngIf="name?.errors?.['pattern']" class="mensajeError">El nombre debe contener solo letras y espacios.</div>
+        <!-- Mensaje de error si el campo `name` no cumple con el patrón de solo letras y espacios -->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <!-- Contenedor para el campo del correo electrónico -->
+      <label for="email">Correo Electrónico:</label>
+      <input formControlName="email" type="email" id="email" class="form-control">
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">        
+        <div *ngIf="email?.errors?.['required']" class="mensajeError">El correo electrónico es requerido.</div>
+        <!-- Mensaje de error si el campo `email` está vacío (requerido) -->
+        <div *ngIf="email?.errors?.['email']" class="mensajeError">El correo electrónico debe ser válido.</div>
+        <!-- Mensaje de error si el campo `email` no tiene un formato válido -->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Mensaje:</label>
+      <textarea formControlName="message" id="message" class="form-control"></textarea>
+      <div *ngIf="message?.invalid && (message?.dirty || message?.touched)">        
+        <div *ngIf="message?.errors?.['required']" class="mensajeError">El mensaje es requerido.</div>        
+        <div *ngIf="message?.errors?.['minlength']" class="mensajeError">El mensaje debe tener al menos 10 caracteres.</div>        
+        <div *ngIf="message?.errors?.['maxlength']" class="mensajeError">El mensaje no puede tener más de 500 caracteres.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="contactForm.invalid">Enviar</button>
+    <!-- Botón para enviar el formulario -->
+    <!-- La directiva `[disabled]` desactiva el botón si el formulario es inválido -->
+    <!-- La clase `btn-submit` aplica estilos al botón -->
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+</div>
+  
+<div *ngIf="!error && mensajes.length > 0">
+<h1>Mensajes Registrados</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Correo Electrónico</th>
+        <th>Mensaje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let mensaje of mensajes">
+        <td>{{ mensaje.nombre }}</td>
+        <td>{{ mensaje.email }}</td>
+        <td>{{ mensaje.mensaje }}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+  
+<div *ngIf="!error && mensajes.length === 0">
+<p>No hay mensajes registrados.</p>
+</div>
+  

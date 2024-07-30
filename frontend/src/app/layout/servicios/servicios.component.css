@@ -1,0 +1,125 @@
+
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+}
+
+.image-info-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
+    height: auto; /* Ajusta la altura en función del contenido */
+    margin-top: 5%;
+}
+
+.image-section {
+    background-color: white;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ajusta la altura según el contenido */
+    margin: 0;
+    padding: 10px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border: 5px solid white;
+    border-radius: 8px;
+}
+
+.info-section {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+}
+
+.info-section h1 {
+    font-size: 3em; /* Tamaño grande para impacto */
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente entre rojo, plomo y blanco */
+    background-clip: text; /* Clipa el gradiente al texto */
+    -webkit-background-clip: text; /* Soporte para navegadores Webkit */
+    color: #333333; /* Texto transparente para mostrar el gradiente */
+    animation: gradientAnimation 8s ease infinite; /* Animación de gradiente */
+    display: inline-block; /* Permite la animación en línea */
+    font-weight: bold; /* Fuente en negrita para claridad */
+    letter-spacing: 0.05em; /* Espaciado de letras */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra sutil para mejorar legibilidad */
+    font-family: 'Georgia', serif;
+}
+
+/* Animación de gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente inicial */
+    }
+    50% {
+        background: linear-gradient(45deg, #d3d3d3, #ffffff, #ff0000); /* Gradiente intermedio */
+    }
+    100% {
+        background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente final */
+    }
+}
+
+/* Estilo en hover */
+.info-section h1:hover {
+    color: white; /* Cambia el color del texto a rojo */
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 25px rgba(255, 0, 0, 0.6); /* Efecto de resplandor rojo */
+    transform: scale(1.05); /* Aumenta el tamaño del texto en hover */
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+
+
+.titulo {
+    text-align: justify;
+    margin: 10px 0; /* Ajusta el margen para dispositivos móviles */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 767px) {
+    .image-section,
+    .info-section {
+        width: 100%; /* Los elementos ocupan el 100% del ancho en pantallas pequeñas */
+    }
+    
+    .info-section h1 {
+        font-size: 1.8em; /* Tamaño de fuente más pequeño en móviles */
+        padding: 10px;
+    }
+
+    .info {
+        font-size: 1em; /* Tamaño de fuente más pequeño en móviles */
+        margin: 5px 0; /* Ajusta el margen para más espacio en móviles */
+    }
+}
+
+/* Media Queries para tablets y pantallas de tamaño mediano */
+@media (min-width: 768px) and (max-width: 991px) {
+    .info-section h1 {
+        font-size: 2.2em; /* Tamaño de fuente ligeramente más pequeño en pantallas medianas */
+    }
+
+    .info {
+        font-size: 1.1em; /* Tamaño de fuente ligeramente más pequeño en pantallas medianas */
+    }
+}
+
+.titulo{
+    color: #000000;
+    font-weight: bold; /* Negrita para mayor impacto */
+    font-family: 'Georgia', serif;
+
+}
+
+.info{
+    font-family: 'Georgia', serif;
+
+}
