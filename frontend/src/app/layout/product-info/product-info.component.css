@@ -3,23 +3,24 @@
 /* Estilos generales para el componente */
 /* Ajustes para las columnas */
 /* Ajustes para las columnas */
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
 .row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-right: 0;
+  margin-left: 0; /* Elimina posibles márgenes laterales que causen desplazamiento horizontal */
 }
+
+
+.container {
+  max-width: 100%; /* Asegura que no se desborde horizontalmente */
+  margin: 0 auto;
+  padding: 20px;
+  overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+}
+
+
 
 .col-img {
   flex: 1 1 50%; /* 50% del ancho en pantallas grandes y medianas */
@@ -40,11 +41,12 @@ body {
 .img-fluid {
   width: 100%;
   height: auto;
-  display: block;
+  max-width: 100%;
+  display: block; /* Evita que las imágenes se comporten como elementos inline */
 }
 
 .info-content {
-  background-color: #ffffff;
+  background: linear-gradient(to right, #ffffff, #ffcc00); /* Degradado entre color existente y rojo */
   padding: 20px;
   border-radius: 8px;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  Sombra que le da forma de un cuadrado a mi contenedor. Bueno a saber */
@@ -95,8 +97,3 @@ body {
   font-family: 'Georgia', serif;
 }
 
-/* .col-info .info-content h1,
-.col-info .info-content p,
-.col-info .info-content a {
-  font-family: 'Georgia', serif;
-} */

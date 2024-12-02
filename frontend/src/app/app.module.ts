@@ -16,6 +16,7 @@ import { HomeComponent} from '../app/home/home.component'
 import { MapComponent} from '../app/map/map.component';
 // import { ScheduleComponent} from '../app/schedule/schedule.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { CallToActionComponent} from './layout/call-to-action/call-to-action.component';
 
 
 import {AdminOnlyDirective} from '../core/directiva/admin-only.directive'
@@ -23,6 +24,7 @@ import {AdminOnlyDirective} from '../core/directiva/admin-only.directive'
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
+
 
 
 
@@ -40,7 +42,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MessageListComponent,
     LoginComponent,
     RegisterComponent,
-    MapComponent
+    MapComponent,
+    CallToActionComponent
     // ScheduleComponent  
   ],
   imports: [
@@ -50,7 +53,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     CommonModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

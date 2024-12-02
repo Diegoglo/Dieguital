@@ -1,14 +1,54 @@
+<!-- Galería de imágenes -->
 <div class="image-gallery">
-    <div class="image-container" *ngFor="let image of images">
-      <div class="image-wrapper">
-        <img [src]="image.src" alt="Imagen" [class.large]="image.large">
-        <button class="more-button" (click)="toggleSize(image)">Ver más</button>
+  <div class="image-container" *ngFor="let image of images; let i = index">
+    <div class="image-wrapper">
+      <img [src]="image.src" alt="Imagen" [class.large]="image.large">
+      <button class="more-button" (click)="openCarousel(i)">Ver más</button>
+    </div>
+    <div class="info" [class.active]="image.large">
+      <button class="close-button" (click)="toggleSize(image)">X</button>
+      <h3>{{ image.title }}</h3>
+      <p>{{ image.comment }}</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de carrusel -->
+<div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="carouselModalLabel">BarberShop</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="info" [class.active]="image.large">
-        <button class="close-button" (click)="toggleSize(image)">X</button>
-        <h3>{{ image.title }}</h3>
-        <p>{{ image.comment }}</p>
+      <div class="modal-body">
+        <!-- Carrusel de Bootstrap -->
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div 
+              *ngFor="let carouselImage of selectedCarouselImages; let i = index" 
+              class="carousel-item" 
+              [class.active]="i === 0">
+              <img 
+                [src]="carouselImage.src" 
+                class="d-block w-100" 
+                alt="Imagen del carrusel">
+            </div>
+          </div>
+          <!-- Controles del carrusel -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>
+
+

@@ -1,27 +1,47 @@
-
-
-/* Estilos generales */
-body {
+/* Asegura que el componente ocupe todo el ancho de la pantalla */
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+/* Evita desbordamientos a nivel global */
+html, body {
+    width: 100%;
     margin: 0;
-    font-family: 'Georgia', serif;
+    padding: 0;
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+    
 }
 
-.image-info-container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
-    height: auto; /* Ajusta la altura en función del contenido */
+
+.container-fluid {
+    /* background: linear-gradient(to right, #e0e0e0, #ffffff); */
+    background-color: #ffcc00; /* Fondo amarillo llamativo */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    padding: 0; /* Elimina cualquier padding lateral */
+    margin: 0; /* Elimina margen */
+    height: auto;
     margin-top: 5%;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden; /* Evita desbordamiento horizontal */
 }
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+
+/* Sección de imagen con estilos */
 .image-section {
     background-color: white;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto; /* Ajusta la altura según el contenido */
-    margin: 0;
+    height: auto;
     padding: 10px;
+    margin: 0;
 }
 
 .image-section img {
@@ -29,97 +49,91 @@ body {
     height: auto;
     border: 5px solid white;
     border-radius: 8px;
+    max-width: 100%;
 }
 
+/* Sección de información con estilos */
 .info-section {
     background-color: #fff;
     color: #000;
     padding: 20px;
+    max-width: 100%;
+    flex-grow: 1;
+    overflow-x: hidden;
 }
 
+/* Estilos del título principal */
 .info-section h1 {
-    font-size: 3em; /* Tamaño grande para impacto */
+    font-size: 3em;
     text-align: center;
-    position: relative;
-    padding: 20px;
-    background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente entre rojo, plomo y blanco */
-    background-clip: text; /* Clipa el gradiente al texto */
-    -webkit-background-clip: text; /* Soporte para navegadores Webkit */
-    color: #333333; /* Texto transparente para mostrar el gradiente */
-    animation: gradientAnimation 8s ease infinite; /* Animación de gradiente */
-    display: inline-block; /* Permite la animación en línea */
-    font-weight: bold; /* Fuente en negrita para claridad */
-    letter-spacing: 0.05em; /* Espaciado de letras */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra sutil para mejorar legibilidad */
+    background: linear-gradient(45deg, #ffffff, #ffcc00, #ffcc00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #333333;
+    animation: gradientAnimation 8s ease infinite;
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     font-family: 'Georgia', serif;
+    max-width: 100%;
 }
 
-/* Animación de gradiente */
+.titulo, .info {
+    text-align: justify;
+    margin: 10px 0;
+    font-family: 'Georgia', serif;
+    max-width: 100%;
+}
+
+.titulo2 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Animación del gradiente */
 @keyframes gradientAnimation {
     0% {
-        background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente inicial */
+        background: linear-gradient(45deg, #ffcc00, #ffffff, #ffffff);
     }
     50% {
-        background: linear-gradient(45deg, #d3d3d3, #ffffff, #ff0000); /* Gradiente intermedio */
+        background: linear-gradient(45deg, #d3d3d3, #ffffff, #ffcc00);
     }
     100% {
-        background: linear-gradient(45deg, #ff0000, #d3d3d3, #ffffff); /* Gradiente final */
+        background: linear-gradient(45deg, #ffcc00, #d3d3d3, #ffffff);
     }
 }
 
-/* Estilo en hover */
 .info-section h1:hover {
-    color: white; /* Cambia el color del texto a rojo */
-    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 25px rgba(255, 0, 0, 0.6); /* Efecto de resplandor rojo */
-    transform: scale(1.05); /* Aumenta el tamaño del texto en hover */
-    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    color: white;
+    text-shadow: 0 0 15px rgba(204, 255, 0, 0.8), 0 0 25px rgba(255, 255, 0, 0.6);
+    transform: scale(1.05);
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
-
-
-.titulo {
-    text-align: justify;
-    margin: 10px 0; /* Ajusta el margen para dispositivos móviles */
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Media Queries para dispositivos móviles */
+/* Media Queries ajustadas */
 @media (max-width: 767px) {
-    .image-section,
-    .info-section {
-        width: 100%; /* Los elementos ocupan el 100% del ancho en pantallas pequeñas */
+    .image-section, .info-section {
+        width: 100%;
     }
-    
+
     .info-section h1 {
-        font-size: 1.8em; /* Tamaño de fuente más pequeño en móviles */
+        font-size: 1.8em;
         padding: 10px;
     }
 
     .info {
-        font-size: 1em; /* Tamaño de fuente más pequeño en móviles */
-        margin: 5px 0; /* Ajusta el margen para más espacio en móviles */
+        font-size: 1em;
+        margin: 5px 0;
     }
 }
 
-/* Media Queries para tablets y pantallas de tamaño mediano */
 @media (min-width: 768px) and (max-width: 991px) {
     .info-section h1 {
-        font-size: 2.2em; /* Tamaño de fuente ligeramente más pequeño en pantallas medianas */
+        font-size: 2.2em;
     }
 
     .info {
-        font-size: 1.1em; /* Tamaño de fuente ligeramente más pequeño en pantallas medianas */
+        font-size: 1.1em;
     }
-}
-
-.titulo{
-    color: #000000;
-    font-weight: bold; /* Negrita para mayor impacto */
-    font-family: 'Georgia', serif;
-
-}
-
-.info{
-    font-family: 'Georgia', serif;
-
 }

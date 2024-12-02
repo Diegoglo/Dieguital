@@ -18,7 +18,7 @@ export class LoginComponent {
     this.authService.login(this.email, this.password).subscribe(
       response => {
         this.authService.saveToken(response.token);
-        this.router.navigate(['/messages']);
+        this.router.navigate(['/home']);
       },
       error => {
         console.error('Error de autenticación', error);

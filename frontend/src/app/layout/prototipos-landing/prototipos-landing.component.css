@@ -1,11 +1,15 @@
+/* Contenedor de la galería */
 .image-gallery {
+    background: linear-gradient(to right, #ffffff, #dbd4d4); /* Degradado entre color blanco y gris */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-  }
-  
-  .image-container {
+    max-width: 100%;  
+}
+
+/* Contenedor de cada imagen */
+.image-container {
     width: calc(33.33% - 20px); /* Ajusta el ancho para que haya 3 imágenes por fila */
     margin-bottom: 20px;
     position: relative;
@@ -13,27 +17,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     transition: transform 0.3s ease;
-  }
-  
-  .image-container:hover {
+}
+
+/* Efecto al pasar el mouse sobre la imagen */
+.image-container:hover {
     transform: translateY(-5px);
-  }
-  
-  .image-wrapper {
+}
+
+/* Envuelve la imagen y proporciona un borde redondeado */
+.image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 8px 8px 0 0;
-    font-family: 'Georgia', serif;
-  }
-  
-  .image-wrapper img {
+}
+
+/* Imagen dentro del contenedor */
+.image-wrapper img {
     width: 100%;
     height: auto;
-    display: block;
     transition: transform 0.3s ease;
-  }
-  
-  .more-button {
+    max-width: 100%;
+    display: block; /* Evita que las imágenes se comporten como elementos inline */
+}
+
+/* Botón de más información */
+.more-button {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -47,14 +55,16 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .more-button:hover {
+}
+
+/* Efecto de hover en el botón */
+.more-button:hover {
     background-color: #f0f0f0;
     transform: translateY(-2px);
-  }
-  
-  .info {
+}
+
+/* Información adicional del item */
+.info {
     background-color: #fff;
     padding: 16px;
     position: absolute;
@@ -66,14 +76,15 @@
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 8px 8px;
     font-family: 'Georgia', serif;
+}
 
-  }
-  
-  .info.active {
+/* Cuando la información se activa */
+.info.active {
     transform: translateY(0);
-  }
-  
-  .close-button {
+}
+
+/* Botón de cerrar información */
+.close-button {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -84,36 +95,96 @@
     color: #555;
     cursor: pointer;
     transition: color 0.3s ease;
-  }
-  
-  .close-button:hover {
+}
+
+/* Efecto de hover en el botón de cerrar */
+.close-button:hover {
     color: #f44336; /* Rojo */
-  }
-  
-  h3 {
+}
+
+/* Estilo del título y el párrafo */
+h3 {
     margin-bottom: 8px;
     font-size: 18px;
     color: #333;
-  }
-  
-  p {
+}
+
+p {
     font-size: 14px;
     line-height: 1.5;
     color: #666;
-  }
+}
 
-
-
-  .image-wrapper {
-    overflow: hidden; /* Para evitar que el contenido sobresalga si la imagen se agranda */
-  }
-  
-  .image-wrapper img {
-    transition: transform 0.3s ease; /* Transición suave para una experiencia más agradable */
-  }
-  
-  .image-wrapper:hover img {
+/* Efecto al pasar el mouse sobre la imagen en el contenedor */
+.image-wrapper:hover img {
     transform: scale(1.1); /* Aumenta la imagen al 110% de su tamaño original */
-  }
-  
-  
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 767px) {
+    /* Ajusta el ancho de las imágenes a 100% en pantallas pequeñas */
+    .image-container {
+        width: 100%;
+    }
+
+    /* Ajusta el tamaño del botón de más información */
+    .more-button {
+        font-size: 12px;
+    }
+
+    /* Ajusta el tamaño de la información */
+    .info {
+        font-size: 14px;
+    }
+
+    /* Ajusta el tamaño de los títulos */
+    h3 {
+        font-size: 16px;
+    }
+
+    /* Ajusta el tamaño de los párrafos */
+    p {
+        font-size: 12px;
+    }
+}
+
+/* Asegura que el carrusel ocupe el 100% del alto y ancho del modal */
+/* Asegura que el carrusel ocupe el 100% del modal */
+.modal-body .carousel-inner {
+    width: 100%;
+    height: auto; /* Ajusta dinámicamente la altura al contenido */
+    overflow: hidden;
+}
+
+/* Asegura que las imágenes se vean bien */
+.carousel-inner img {
+    width: 100%;
+    height: auto; /* Escala proporcionalmente */
+    object-fit: cover;
+}
+
+/* Controles del carrusel */
+.carousel-control-prev, 
+.carousel-control-next {
+    top: 50%; /* Centra las flechas */
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para los íconos */
+    border-radius: 50%;
+}
+
+/* Transición suave entre imágenes */
+.carousel-item {
+    transition: transform 0.5s ease-in-out; /* Transición entre imágenes */
+}
+
+/* Elimina configuraciones no necesarias */
+.carousel-inner {
+    display: block; /* Asegura el comportamiento predeterminado de Bootstrap */
+}
+
+
+

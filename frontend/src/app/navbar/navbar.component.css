@@ -16,6 +16,8 @@
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
+  text-shadow: 2px 2px #fff; /* Sombra blanca para resaltar */
+
 }
 
 .navbar-brand:hover {

@@ -1,18 +1,22 @@
-/* Estilos para el formulario */
 :host {
   display: block;
   background-color: rgba(255, 255, 255, 0.967); /* Color de fondo del componente */
   padding: 20px;
   min-height: 50vh; /* Asegura que el componente ocupe al menos la altura completa de la vista */
+  max-width: 100%; /* Evita desbordamiento horizontal */
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
 }
+
+
 .form-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: white; /* Blanco */
-  /* border: 1px solid #ddd; */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Asegura que el formulario ocupe el ancho completo del contenedor */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
 }
 
 h1 {
@@ -33,7 +37,7 @@ label {
 }
 
 .form-control {
-  width: 100%;
+  width: 100%; /* Asegura que los campos ocupen el ancho completo del contenedor */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -53,6 +57,7 @@ textarea.form-control {
   font-size: 1em;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%; /* El botón ocupa el 100% del ancho del contenedor */
   transition: background-color 0.3s ease;
 }
 
@@ -60,6 +65,26 @@ textarea.form-control {
   background-color: #cc0000; /* Rojo más oscuro */
 }
 
-.mensajeError{
-  color:red;
+.mensajeError {
+  color: red;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 767px) {
+  .form-container {
+    padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Reduce el tamaño del título */
+  }
+
+  .form-control {
+    padding: 8px; /* Ajusta el padding de los campos en pantallas pequeñas */
+  }
+
+  .btn-submit {
+    font-size: 0.9em; /* Reduce el tamaño del texto del botón */
+    padding: 8px 15px; /* Ajusta el padding del botón en pantallas pequeñas */
+  }
 }

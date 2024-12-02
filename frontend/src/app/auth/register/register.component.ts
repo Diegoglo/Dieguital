@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       age: ['', [Validators.required, Validators.min(0)]],
       gender: ['', Validators.required],
-      password: ['', Validators.required] // Agregado campo de contraseña
+      password: ['', Validators.required] 
     });
   }
 
